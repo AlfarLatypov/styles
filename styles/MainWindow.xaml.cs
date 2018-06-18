@@ -24,5 +24,31 @@ namespace styles
         {
             InitializeComponent();
         }
+
+      
+        private void Change_Template(object sender, RoutedEventArgs e)
+        {
+            ResourceDictionary template = new ResourceDictionary();
+
+            RadioButton rb = (RadioButton)sender;
+
+            switch (rb.Name)
+            {
+                case "Dark":
+                    {
+                        template.Source = new Uri("/Resourses/DarkStyle.xaml", UriKind.Relative);
+                    }
+                    break;
+                case "Light":
+                    {
+                        template.Source = new Uri("/Resourses/Style.xaml", UriKind.Relative);
+                    }
+                    break;
+            }
+
+         //   var currentResourse = this.Resources.MergedDictionaries;
+            this.Resources.MergedDictionaries[0] = template;
+
+        }
     }
 }
